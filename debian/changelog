@@ -1,9 +1,9 @@
-systemback (1.8.402hamonikr1) release; urgency=low
+systemback (1.8.402hamonikr1) bionic; urgency=low
 
   * Rebuild for HamoniKR OS
   * Added Korean translation
 
- -- Kevin Kim <chaeya@gmail.com>  Sun, 04 Oct 2020 15:10:11 +0900
+ -- Kevin Kim <chaeya@gmail.com>  Sun, 04 Oct 2020 15:46:34 +0900
 
 systemback (1.8.402) release; urgency=low
 
