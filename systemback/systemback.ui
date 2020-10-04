@@ -858,7 +858,7 @@
         </rect>
        </property>
        <property name="text">
-        <string notr="true">Kendek, GPLv3</string>
+        <string notr="true">HamoniKR Team</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1785,7 +1785,7 @@
         </rect>
        </property>
        <property name="text">
-        <string notr="true">Kendek, GPLv3</string>
+        <string notr="true">HamoniKR Team</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2121,7 +2121,7 @@
         </rect>
        </property>
        <property name="text">
-        <string notr="true">Kendek, GPLv3</string>
+        <string notr="true">HamoniKR Team</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -4043,7 +4043,7 @@
         </rect>
        </property>
        <property name="text">
-        <string notr="true">Kendek, GPLv3</string>
+        <string notr="true">HamoniKR Team</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -6167,7 +6167,7 @@
         </rect>
        </property>
        <property name="text">
-        <string notr="true">Kendek, GPLv3</string>
+        <string notr="true">HamoniKR Team</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -6669,7 +6669,7 @@
         </rect>
        </property>
        <property name="text">
-        <string notr="true">Kendek, GPLv3</string>
+        <string notr="true">HamoniKR Team</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
