@@ -1,5 +1,6 @@
 /*
- * Copyright(C) 2014-2016, Krisztián Kende <nemh@freemail.hu>
+ * Copyright(C) 2020, Kevin Kim <root@hamonikr.org>
+ *              2014-2016, Krisztián Kende <nemh@freemail.hu>
  *
  * This file is part of the Systemback.
  *
