@@ -1,3 +1,9 @@
+systemback (1.8.402hamonikr2) bionic; urgency=low
+
+  * Changed splash image for HamoniKR
+
+ -- Kevin Kim <chaeya@gmail.com>  Mon, 05 Oct 2020 10:34:51 +0900
+
 systemback (1.8.402hamonikr1) bionic; urgency=low
 
   * Rebuild for HamoniKR OS
