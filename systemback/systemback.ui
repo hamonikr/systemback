@@ -2646,7 +2646,7 @@
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="text">
-        <string notr="true">https://sourceforge.net/projects/systemback</string>
+        <string notr="true">https://github.com/hamonikr/systemback</string>
        </property>
       </widget>
       <widget class="lblevent" name="homepage2">
@@ -2667,7 +2667,7 @@
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="text">
-        <string notr="true">https://launchpad.net/systemback</string>
+        <string notr="true">https://hamonikr.org</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_31">
@@ -2701,7 +2701,7 @@
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="text">
-        <string notr="true">nemh@freemail.hu</string>
+        <string notr="true">root@hamonikr.org</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_33">
@@ -2851,7 +2851,7 @@
         </rect>
        </property>
        <property name="text">
-        <string notr="true">(c) 2016, Krisztián Kende</string>
+        <string notr="true">(c) 2020 HamoniKR Team</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2908,7 +2908,7 @@
         </rect>
        </property>
        <property name="text">
-        <string notr="true">(c) 2016, Krisztián Kende</string>
+        <string notr="true">(c) 2020 HamoniKR Team</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
