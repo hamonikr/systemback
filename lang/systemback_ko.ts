@@ -69,7 +69,7 @@
     </message>
     <message>
         <source>Write to target</source>
-        <translation>디렉토리에 쓰기</translation>
+        <translation>선택한 장치에 쓰기</translation>
     </message>
     <message>
         <source>Convert to ISO</source>
@@ -545,23 +545,23 @@
     </message>
     <message>
         <source>Creating restore point</source>
-        <translation>복원 지점 생성</translation>
+        <translation>복원 지점 생성 중</translation>
     </message>
     <message>
         <source>Restoring the full system</source>
-        <translation>전체 시스템 복원</translation>
+        <translation>전체 시스템 복원 중</translation>
     </message>
     <message>
         <source>Restoring the system files</source>
-        <translation>시스템 파일 복원</translation>
+        <translation>시스템 파일 복원 중</translation>
     </message>
     <message>
         <source>Restoring the user(s) configuration files</source>
-        <translation>사용자 설정 파일 복원</translation>
+        <translation>사용자 설정 파일 복원 중</translation>
     </message>
     <message>
         <source>Repairing the system files</source>
-        <translation>시스템 파일 복구</translation>
+        <translation>시스템 파일 복구 중</translation>
     </message>
     <message>
         <source>Repairing the full system</source>
@@ -569,15 +569,15 @@
     </message>
     <message>
         <source>Copying the system</source>
-        <translation>시스템 복사</translation>
+        <translation>시스템 복사 중</translation>
     </message>
     <message>
         <source>Installing the system</source>
-        <translation>시스템 설치</translation>
+        <translation>시스템 설치 중</translation>
     </message>
     <message>
         <source>Creating Live system</source>
-        <translation>라이브 시스템 생성</translation>
+        <translation>라이브 시스템 생성 중</translation>
     </message>
     <message>
         <source>process</source>
@@ -585,19 +585,19 @@
     </message>
     <message>
         <source>Writing Live image to the target device</source>
-        <translation>저장 디렉토리에 라이브 이미지 쓰기</translation>
+        <translation>선택한 장치에 라이브 이미지 생성 중</translation>
     </message>
     <message>
         <source>Converting Live system image</source>
-        <translation>라이브 시스템 이미지 변환</translation>
+        <translation>라이브 시스템 이미지 변환 중</translation>
     </message>
     <message>
         <source>Deleting restore point</source>
-        <translation>복원 지점 삭제</translation>
+        <translation>복원 지점 삭제 중</translation>
     </message>
     <message>
         <source>Deleting old restore point</source>
-        <translation>오래된 복원 지점 삭제</translation>
+        <translation>오래된 복원 지점 삭제하는 중</translation>
     </message>
     <message>
         <source>Deleting incomplete restore point</source>
@@ -605,11 +605,11 @@
     </message>
     <message>
         <source>Emptying cache</source>
-        <translation>캐시 비우기</translation>
+        <translation>캐시 비우는 중</translation>
     </message>
     <message>
         <source>Flushing filesystem buffers</source>
-        <translation>파일시스템 버퍼 비우기</translation>
+        <translation>파일시스템 버퍼 비우는 중</translation>
     </message>
     <message>
         <source>Reboot</source>
@@ -621,7 +621,7 @@
     </message>
     <message>
         <source>Repairing the GRUB 2</source>
-        <translation>GRUB 2 복구</translation>
+        <translation>GRUB 2 복구 중</translation>
     </message>
     <message>
         <source>Restore the system files to the following restore point:</source>
