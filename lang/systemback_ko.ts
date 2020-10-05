@@ -81,7 +81,7 @@
     </message>
     <message>
         <source>Mount the faulty system partition(s) to the &apos;/mnt&apos; directory according to the original structure.&lt;br&gt;(&apos;/&apos; -&gt; &apos;/mnt&apos;, &apos;/home&apos; -&gt; &apos;/mnt/home&apos;, etc.)</source>
-        <translation>원본 구조대로 /mnt 디렉토리에 결함이 있는 시스템 파티션을 마운트 합니다.&lt;br&gt;(&apos;/&apos; -&gt; &apos;/mnt&apos;, &apos;/home&apos; -&gt; &apos;/mnt/home&apos;, etc.)</translation>
+        <translation>원본 구조대로 &apos;/mnt&apos; 디렉토리에 결함이 있는 시스템 파티션을 마운트 합니다.&lt;br&gt;(&apos;/&apos; -&gt; &apos;/mnt&apos;, &apos;/home&apos; -&gt; &apos;/mnt/home&apos;, etc.)</translation>
     </message>
     <message>
         <source>Mount</source>
