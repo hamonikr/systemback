@@ -2735,10 +2735,10 @@
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="toolTip">
-        <string notr="true">https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=ZQ668BBR7UCEQ</string>
+        <string notr="true">https://hamonikr.org</string>
        </property>
        <property name="text">
-        <string notr="true">PayPal</string>
+        <string notr="true">Community</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_34">
