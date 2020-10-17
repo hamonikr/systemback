@@ -28,5 +28,11 @@ curl -sL https://apt.hamonikr.org/setup_hamonikr.sun | sudo -E bash -
 sudo apt install systemback
 ```
 
+## clean remove pkg
+```
+sudo apt purge -y systemback systemback-cli systemback-scheduler systemback-locales libsystemback systemback-efiboot-amd64
+```
+
+
 ## 이슈 또는 버그
  사용 중 문제를 발견하시면 root@hamonikr.org 또는 https://hamonikr.org 에서 알려주세요.
