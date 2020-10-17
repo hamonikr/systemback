@@ -678,6 +678,7 @@ void systemback::unitimer()
                                        : lcode == "da_DK" ? "Dansk"
                                        : lcode == "de" ? "Deutsch"
                                        : lcode == "en_GB" ? "English (United Kingdom)"
+                                       : lcode == "ko_KR" ? "한글"                                       
                                        : lcode == "es" ? "Español"
                                        : lcode == "fi" ? "Suomi"
                                        : lcode == "fr" ? "Français"
@@ -712,6 +713,7 @@ void systemback::unitimer()
                                          : sb::lang == "de_DE" ? lst.indexOf("Deutsch")
                                          : sb::lang == "en_EN" ? lst.indexOf("English (common)")
                                          : sb::lang == "en_GB" ? lst.indexOf("English (United Kingdom)")
+                                         : sb::lang == "ko_KR" ? lst.indexOf("한글")                                         
                                          : sb::lang == "es_ES" ? lst.indexOf("Español")
                                          : sb::lang == "fi_FI" ? lst.indexOf("Suomi")
                                          : sb::lang == "fr_FR" ? lst.indexOf("Français")
@@ -7577,6 +7579,7 @@ void systemback::on_languageoverride_clicked(bool chckd)
                  : lname == "Deutsch" ? "de_DE"
                  : lname == "English (common)" ? "en_EN"
                  : lname == "English (United Kingdom)" ? "en_GB"
+                 : lname == "한글" ? "ko_KR"                 
                  : lname == "Español" ? "es_ES"
                  : lname == "Suomi" ? "fi_FI"
                  : lname == "Français" ? "fr_FR"
@@ -7607,6 +7610,7 @@ void systemback::on_languages_currentIndexChanged(cQStr &arg1)
                                             : arg1 == "Deutsch" ? "de_DE"
                                             : arg1 == "English (common)" ? "en_EN"
                                             : arg1 == "English (United Kingdom)" ? "en_GB"
+                                            : arg1 == "한글" ? "ko_KR"                                            
                                             : arg1 == "Español" ? "es_ES"
                                             : arg1 == "Suomi" ? "fi_FI"
                                             : arg1 == "Français" ? "fr_FR"
