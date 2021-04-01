@@ -20,6 +20,7 @@ TRANSLATIONS = lang/systemback_hu.ts \
                lang/systemback_da_DK.ts \
                lang/systemback_de.ts \
                lang/systemback_en_GB.ts \
+               lang/systemback_ko_KR.ts \
                lang/systemback_es.ts \
                lang/systemback_fi.ts \
                lang/systemback_fr.ts \

@@ -1,3 +1,9 @@
+systemback (1.8.402hamonikr4) bionic; urgency=low
+
+  * Fixed ko_KR lang show
+
+ -- HamoniKR <pkg@hamonikr.org>  Thu, 01 Apr 2021 16:10:03 +0900
+
 systemback (1.8.402hamonikr3) bionic; urgency=low
 
   * Fixed dependancy error at HamoniKR 3.0
