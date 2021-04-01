@@ -124,12 +124,15 @@ systemback::systemback() : QMainWindow(nullptr, Qt::FramelessWindowHint), ui(new
         if(fnt.overline()) fnt.setOverline(false);
         if(fnt.strikeOut()) fnt.setStrikeOut(false);
         if(fnt.underline()) fnt.setUnderline(false);
+        // Overriding Default Font
+        fnt.setFamily("Noto Sans CJK KR");
 
         if(! (sb::like(sb::wsclng, {"_auto_", "_1_"}) && fontInfo().pixelSize() == 15))
         {
             sfctr = sb::wsclng == "auto" ? fontInfo().pixelSize() > 28 ? Max : fontInfo().pixelSize() > 21 ? High : Normal : sb::wsclng == "2" ? Max : sb::wsclng == "1.5" ? High : Normal;
             while(sfctr > Normal && (sgm.width() - ss(30) < ss(698) || sgm.height() - ss(30) < ss(465))) sfctr = sfctr == Max ? High : Normal;
-            fnt.setPixelSize(ss(15));
+            // fnt.setPixelSize(ss(15));
+            fnt.setPixelSize(ss(13));
             for(QWdt wdgt : QWL{ui->storagedir, ui->liveworkdir, ui->interrupt, ui->partitiondelete}) wdgt->setFont(fnt);
             qApp->setFont(fnt),
             fnt.setPixelSize(ss(27)),

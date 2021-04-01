@@ -1,3 +1,10 @@
+systemback (1.8.402hamonikr5) jin; urgency=low
+
+  * Changed default font settings
+  * Update Program name in desktop file
+
+ -- HamoniKR <pkg@hamonikr.org>  Thu, 01 Apr 2021 18:21:08 +0900
+
 systemback (1.8.402hamonikr4) bionic; urgency=low
 
   * Fixed ko_KR lang show
