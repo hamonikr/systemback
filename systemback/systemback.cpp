@@ -7236,11 +7236,11 @@ void systemback::on_livenew_clicked()
                 }
             }
         }
-        
+
         // Fix : casper boot fail bug
         if(sb::isfile("/usr/share/initramfs-tools/scripts/casper"))
         {
-            sb::exec("sed -i -E 's/(panic \"\/cow)(.+)/true/g' /usr/share/initramfs-tools/scripts/casper")    
+            sb::exec("sed -i -E 's/(panic \"\/cow)(.+)/true/g' /usr/share/initramfs-tools/scripts/casper");
         }        
 
         if(did.isEmpty()) did = "Ubuntu";
