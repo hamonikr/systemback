@@ -1,3 +1,10 @@
+systemback (1.8.402hamonikr6) jin; urgency=low
+
+  * Update systemback/systemback.cpp
+   - Fix : casper boot fail bug
+
+ -- HamoniKR <pkg@hamonikr.org>  Thu, 01 Apr 2021 18:21:08 +0900
+
 systemback (1.8.402hamonikr5) jin; urgency=low
 
   * Changed default font settings
