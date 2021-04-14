@@ -1,9 +1,10 @@
 ![hamonikr-me](https://img.shields.io/badge/hamonikr-me-orange)
 ![hamonikr-sun](https://img.shields.io/badge/hamonikr-sun-green)
+![hamonikr-jin](https://img.shields.io/badge/hamonikr-jin-purple)
 
 ## systemback
 
-Upstream : https://code.launchpad.net/~nemh/systemback/stable
+Upstream : https://github.com/fconidi/Systemback_source-1.9.4
 
 systemback 프로그램을 하모니카에서 사용할 수 있도록 새롭게 빌드한 프로젝트.
 
