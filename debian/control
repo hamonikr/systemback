@@ -1,12 +1,12 @@
 Source: systemback
 Section: admin
 Priority: optional
-Maintainer: Kevin Kim <chaeya@gmail.com>
+Maintainer: Kende Krisztián <nemh@freemail.hu>
 Build-Depends: debhelper (>= 9),
                libblkid-dev,
                libmount-dev,
                libncursesw5-dev,
-               libparted0-dev | libparted-dev,
+               libparted-dev,
                qtbase5-dev,
                qttools5-dev-tools
 Standards-Version: 3.9.7
@@ -21,9 +21,9 @@ Depends: ${misc:Depends},
          genisoimage,
          squashfs-tools,
          syslinux,
-         syslinux (<< 3:5) | isolinux (>= 3:6),
-         syslinux (<< 3:5) | syslinux-common (>= 3:6),
-         syslinux (<< 3:5) | syslinux-utils (>> 3:6),
+         isolinux (>> 3:6),
+         syslinux-common (>> 3:6),
+         syslinux-utils (>> 3:6),
          systemback-efiboot-amd64 (= ${source:Version}) [amd64],
          systemback-scheduler (= ${binary:Version}),
          upstart | sysvinit (>= 2.88) | systemd,
@@ -39,8 +39,8 @@ Recommends: grub2-common,
 Suggests: btrfs-tools,
           jfsutils,
           reiserfsprogs,
-          xfsprogs,
-          unionfs-fuse
+          unionfs-fuse,
+          xfsprogs
 Conflicts: live-config,
            live-config-systemd
 Breaks: systemback-gui-common (<< 1.0.0)

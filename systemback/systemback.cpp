@@ -1,6 +1,5 @@
 /*
- * Copyright(C) 2020, Kevin Kim <root@hamonikr.org>
- *              2014-2016, Krisztián Kende <nemh@freemail.hu>
+ * Copyright(C) 2018-2020, Franco Conidi <edmondweblog@gmail.com>
  *
  * This file is part of the Systemback.
  *
@@ -124,15 +123,12 @@ systemback::systemback() : QMainWindow(nullptr, Qt::FramelessWindowHint), ui(new
         if(fnt.overline()) fnt.setOverline(false);
         if(fnt.strikeOut()) fnt.setStrikeOut(false);
         if(fnt.underline()) fnt.setUnderline(false);
-        // Overriding Default Font
-        fnt.setFamily("Noto Sans CJK KR");
 
         if(! (sb::like(sb::wsclng, {"_auto_", "_1_"}) && fontInfo().pixelSize() == 15))
         {
             sfctr = sb::wsclng == "auto" ? fontInfo().pixelSize() > 28 ? Max : fontInfo().pixelSize() > 21 ? High : Normal : sb::wsclng == "2" ? Max : sb::wsclng == "1.5" ? High : Normal;
             while(sfctr > Normal && (sgm.width() - ss(30) < ss(698) || sgm.height() - ss(30) < ss(465))) sfctr = sfctr == Max ? High : Normal;
-            // fnt.setPixelSize(ss(15));
-            fnt.setPixelSize(ss(13));
+            fnt.setPixelSize(ss(15));
             for(QWdt wdgt : QWL{ui->storagedir, ui->liveworkdir, ui->interrupt, ui->partitiondelete}) wdgt->setFont(fnt);
             qApp->setFont(fnt),
             fnt.setPixelSize(ss(27)),
@@ -716,7 +712,7 @@ void systemback::unitimer()
                                          : sb::lang == "de_DE" ? lst.indexOf("Deutsch")
                                          : sb::lang == "en_EN" ? lst.indexOf("English (common)")
                                          : sb::lang == "en_GB" ? lst.indexOf("English (United Kingdom)")
-                                         : sb::lang == "ko_KR" ? lst.indexOf("한글")                                         
+                                         : sb::lang == "ko_KR" ? lst.indexOf("한글")                                            
                                          : sb::lang == "es_ES" ? lst.indexOf("Español")
                                          : sb::lang == "fi_FI" ? lst.indexOf("Suomi")
                                          : sb::lang == "fr_FR" ? lst.indexOf("Français")
@@ -1733,16 +1729,13 @@ void systemback::abtreleased()
 {
     if(ui->homepage1->foregroundRole() == QPalette::Highlight)
         ui->homepage1->setForegroundRole(QPalette::Text),
-        sb::exec("su -c \"xdg-open https://github.com/hamonikr/systemback &\" " % guname(), sb::Bckgrnd);
-    else if(ui->homepage2->foregroundRole() == QPalette::Highlight)
-        ui->homepage2->setForegroundRole(QPalette::Text),
-        sb::exec("su -c \"xdg-open https://hamonikr.org &\" " % guname(), sb::Bckgrnd);
+        sb::exec("su -c \"xdg-open https://github.com/fconidi &\" " % guname(), sb::Bckgrnd);
     else if(ui->email->foregroundRole() == QPalette::Highlight)
         ui->email->setForegroundRole(QPalette::Text),
-        sb::exec("su -c \"xdg-email root@hamonikr.org &\" " % guname(), sb::Bckgrnd);
+        sb::exec("su -c \"xdg-email edmondweblog@gmail.com &\" " % guname(), sb::Bckgrnd);
     else if(ui->donate->foregroundRole() == QPalette::Highlight)
         ui->donate->setForegroundRole(QPalette::Text),
-        sb::exec("su -c \"xdg-open 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZQ668BBR7UCEQ' &\" " % guname(), sb::Bckgrnd);
+        sb::exec("su -c \"xdg-open 'https://francoconidi.it/' &\" " % guname(), sb::Bckgrnd);
 }
 
 void systemback::foutpnt()
@@ -3209,7 +3202,7 @@ bool systemback::eventFilter(QObject *, QEvent *ev)
                 ui->excludeadditem->move(ui->excludepanel->width() / 2 - sz[1], ui->excludeitemslist->height() / 2 + sz[0]),
                 ui->excluderemoveitem->move(ui->excludeadditem->x(), ui->excludeitemslist->height() / 2 + ss(108)),
                 ui->excludeback->move(ui->excludeback->x(), ui->excludepanel->height() - ss(48)),
-                ui->excludekendektext->move(ui->excludepanel->width() - ss(306), ui->excludepanel->height() - sz[1]),
+                ui->excludeedmondtext->move(ui->excludepanel->width() - ss(306), ui->excludepanel->height() - sz[1]),
                 ui->excluderesize->move(ui->excludepanel->width() - ui->excluderesize->width(), ui->excludepanel->height() - ui->excluderesize->height());
             }
             else if(ui->includepanel->isVisible())
@@ -3224,7 +3217,7 @@ bool systemback::eventFilter(QObject *, QEvent *ev)
                 ui->includeadditem->move(ui->includepanel->width() / 2 - sz[1], ui->includeitemslist->height() / 2 + ss(19)),
                 ui->includeremoveitem->move(ui->includeadditem->x(), ui->includeitemslist->height() / 2 + ss(91)),
                 ui->includeback->move(ui->includeback->x(), ui->includepanel->height() - ss(48)),
-                ui->includekendektext->move(ui->includepanel->width() - ss(306), ui->includepanel->height() - sz[1]),
+                ui->includeedmondtext->move(ui->includepanel->width() - ss(306), ui->includepanel->height() - sz[1]),
                 ui->includeresize->move(ui->includepanel->width() - ui->includeresize->width(), ui->includepanel->height() - ui->includeresize->height());
             }
 
@@ -7241,7 +7234,7 @@ void systemback::on_livenew_clicked()
         if(sb::isfile("/usr/share/initramfs-tools/scripts/casper"))
         {
             sb::exec("sed -i -E 's/(panic \"\/cow)(.+)/true/g' /usr/share/initramfs-tools/scripts/casper");
-        }        
+        }
 
         if(did.isEmpty()) did = "Ubuntu";
         QFile file("/etc/hostname");
@@ -7588,7 +7581,7 @@ void systemback::on_languageoverride_clicked(bool chckd)
                  : lname == "Deutsch" ? "de_DE"
                  : lname == "English (common)" ? "en_EN"
                  : lname == "English (United Kingdom)" ? "en_GB"
-                 : lname == "한글" ? "ko_KR"                 
+                 : lname == "한글" ? "ko_KR"                    
                  : lname == "Español" ? "es_ES"
                  : lname == "Suomi" ? "fi_FI"
                  : lname == "Français" ? "fr_FR"
@@ -7619,7 +7612,7 @@ void systemback::on_languages_currentIndexChanged(cQStr &arg1)
                                             : arg1 == "Deutsch" ? "de_DE"
                                             : arg1 == "English (common)" ? "en_EN"
                                             : arg1 == "English (United Kingdom)" ? "en_GB"
-                                            : arg1 == "한글" ? "ko_KR"                                            
+                                            : arg1 == "한글" ? "ko_KR"                                                            
                                             : arg1 == "Español" ? "es_ES"
                                             : arg1 == "Suomi" ? "fi_FI"
                                             : arg1 == "Français" ? "fr_FR"

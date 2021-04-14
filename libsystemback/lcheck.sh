@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Copyright(C) 2015-2016, Krisztián Kende <nemh@freemail.hu>
+# Copyright(C) 2018-2020, Franco Conidi <edmondweblog@gmail.com>
 #
 # This file is part of the Systemback.
 #

@@ -1,0 +1,22 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+    configure|triggered)
+
+        if [ -f "/usr/share/initramfs-tools/scripts/casper" ] ; then
+            cp /usr/share/initramfs-tools/scripts/casper /usr/share/initramfs-tools/scripts/casper.orig
+            sed -i -E 's/(panic \"\/cow)(.+)/true/g' /usr/share/initramfs-tools/scripts/casper || true
+        fi
+
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac

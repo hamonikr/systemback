@@ -1,43 +1,23 @@
-systemback (1.8.402hamonikr6) jin; urgency=low
+systemback (1.9.4hamonikr1) jin; urgency=low
 
   * Update systemback/systemback.cpp
    - Fix : casper boot fail bug
 
  -- HamoniKR <pkg@hamonikr.org>  Thu, 01 Apr 2021 18:21:08 +0900
 
-systemback (1.8.402hamonikr5) jin; urgency=low
+systemback (1.9.4) release; urgency=low
 
-  * Changed default font settings
-  * Update Program name in desktop file
+  * 1.9.4
+  * Bug Fix
 
- -- HamoniKR <pkg@hamonikr.org>  Thu, 01 Apr 2021 18:21:08 +0900
+  * 1.9.3
+  * Add support for NVMe 
 
-systemback (1.8.402hamonikr4) bionic; urgency=low
+  * 1.9.2
+  * Bug Fix
 
-  * Fixed ko_KR lang show
-
- -- HamoniKR <pkg@hamonikr.org>  Thu, 01 Apr 2021 16:10:03 +0900
-
-systemback (1.8.402hamonikr3) bionic; urgency=low
-
-  * Fixed dependancy error at HamoniKR 3.0
-
- -- Kevin Kim <chaeya@gmail.com>  Mon, 05 Oct 2020 14:35:16 +0900
-
-systemback (1.8.402hamonikr2) bionic; urgency=low
-
-  * Changed splash image for HamoniKR
-
- -- Kevin Kim <chaeya@gmail.com>  Mon, 05 Oct 2020 10:34:51 +0900
-
-systemback (1.8.402hamonikr1) bionic; urgency=low
-
-  * Rebuild for HamoniKR OS
-  * Added Korean translation
-
- -- Kevin Kim <chaeya@gmail.com>  Sun, 04 Oct 2020 15:46:34 +0900
-
-systemback (1.8.402) release; urgency=low
+  * 1.9.1
+  * Fix "can't mount live image ..installation aborted" in System install
 
   * 1.8.402
   * Fix Live creation when the '/snap' directory is missing
@@ -89,4 +69,4 @@ systemback (1.8.402) release; urgency=low
   * Some minor fixes and improvements
   * Import new Hungarian translations
 
- -- Kende Krisztián <nemh@freemail.hu>  Mon, 16 May 2016 13:04:46 +0200
+ -- edmond <edmondweblog@gmail.com>  Sun, 15 Apr 2018 13:44:46 +0100

@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+
+if [ -f "/usr/share/initramfs-tools/scripts/casper.orig" ] ; then
+    rm -f /usr/share/initramfs-tools/scripts/casper
+    mv /usr/share/initramfs-tools/scripts/casper.orig /usr/share/initramfs-tools/scripts/casper
+fi
