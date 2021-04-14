@@ -2,11 +2,13 @@
 Encoding=UTF-8
 Version=1.0
 Name=Systemback
+Name[ko]=시스템 스냅샷 관리
 Comment=Simple system backup and restore application with extra features
-Comment[hu]=Egyszerű rendszermentő és visszaállító alkalmazás további extra funkciókkal
+Comment[ko]=시스템 스냅샷 생성 및 복구 프로그램
 Exec=/usr/lib/systemback/sbsustart systemback gtk+
 Type=Application
 Icon=systemback
 Terminal=false
 NotShowIn=KDE;
 Categories=System;
+Keywords=backup;restore;백업;복구;라이브;live;iso;시스템;Systemback;systemback;
