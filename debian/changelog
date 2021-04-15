@@ -1,3 +1,9 @@
+systemback (1.9.4hamonikr3) jin; urgency=low
+
+  * Disable ISO convert feature for persistent usb
+
+ -- HamoniKR <pkg@hamonikr.org>  Thu, 15 Apr 2021 18:27:37 +0900
+
 systemback (1.9.4hamonikr2) jin; urgency=low
 
   * Change author and git url

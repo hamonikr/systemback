@@ -123,12 +123,15 @@ systemback::systemback() : QMainWindow(nullptr, Qt::FramelessWindowHint), ui(new
         if(fnt.overline()) fnt.setOverline(false);
         if(fnt.strikeOut()) fnt.setStrikeOut(false);
         if(fnt.underline()) fnt.setUnderline(false);
+        // Overriding Default Font
+        fnt.setFamily("Noto Sans CJK KR");                
 
         if(! (sb::like(sb::wsclng, {"_auto_", "_1_"}) && fontInfo().pixelSize() == 15))
         {
             sfctr = sb::wsclng == "auto" ? fontInfo().pixelSize() > 28 ? Max : fontInfo().pixelSize() > 21 ? High : Normal : sb::wsclng == "2" ? Max : sb::wsclng == "1.5" ? High : Normal;
             while(sfctr > Normal && (sgm.width() - ss(30) < ss(698) || sgm.height() - ss(30) < ss(465))) sfctr = sfctr == Max ? High : Normal;
-            fnt.setPixelSize(ss(15));
+            // fnt.setPixelSize(ss(15));
+            fnt.setPixelSize(ss(13));
             for(QWdt wdgt : QWL{ui->storagedir, ui->liveworkdir, ui->interrupt, ui->partitiondelete}) wdgt->setFont(fnt);
             qApp->setFont(fnt),
             fnt.setPixelSize(ss(27)),
@@ -2633,7 +2636,8 @@ void systemback::livewrite()
     {
         ullong isize(sb::fsize(sb::sdir[2] % '/' % sb::left(ui->livelist->currentItem()->text(), sb::instr(ui->livelist->currentItem()->text(), " ") - 1) % ".sblive"));
 
-        if(isize < 4294967295)
+        // if(isize < 4294967295)
+        if(isize < 314572800)
         {
             if(! sb::mkpart(ldev) || intrrpt) return err(338);
             sb::delay(100),
@@ -5445,7 +5449,8 @@ void systemback::on_livelist_currentItemChanged(QLWI *crrnt)
             if(! ui->livedelete->isEnabled()) ui->livedelete->setEnabled(true);
             ullong isize(sb::fsize(sb::sdir[2] % '/' % sb::left(crrnt->text(), sb::instr(crrnt->text(), " ") - 1) % ".sblive"));
 
-            if(isize && isize < 4294967295 && isize * 2 + 104857600 < sb::dfree(sb::sdir[2]) && ! sb::exist(sb::sdir[2] % '/' % sb::left(crrnt->text(), sb::instr(crrnt->text(), " ") - 1) % ".iso"))
+            // if(isize && isize < 4294967295 && isize * 2 + 104857600 < sb::dfree(sb::sdir[2]) && ! sb::exist(sb::sdir[2] % '/' % sb::left(crrnt->text(), sb::instr(crrnt->text(), " ") - 1) % ".iso"))
+            if(isize && isize < 314572800 && isize * 2 + 104857600 < sb::dfree(sb::sdir[2]) && ! sb::exist(sb::sdir[2] % '/' % sb::left(crrnt->text(), sb::instr(crrnt->text(), " ") - 1) % ".iso"))
             {
                 if(! ui->liveconvert->isEnabled()) ui->liveconvert->setEnabled(true);
             }
@@ -7269,7 +7274,7 @@ void systemback::on_livenew_clicked()
     sb::crtfile("/usr/share/initramfs-tools/scripts/init-bottom/sbfinstall", [this]() -> QStr {
             QStr ftxt("#!/bin/sh\nif [ \"$1\" != prereqs ] && grep finstall /proc/cmdline >/dev/null 2>&1\nthen\nif [ -f /root/home/" % guname() % "/.config/autostart/dropbox.desktop ]\nthen rm /root/home/" % guname() % "/.config/autostart/dropbox.desktop\nfi\nif [ -f /root/usr/bin/ksplashqml ]\nthen\nchmod -x /root/usr/bin/ksplash* /root/usr/bin/plasma*\nif [ -f /root/usr/share/autostart/plasma-desktop.desktop ]\nthen mv /root/usr/share/autostart/plasma-desktop.desktop /root/usr/share/autostart/plasma-desktop.desktop_\nfi\nif [ -f /root/usr/share/autostart/plasma-netbook.desktop ]\nthen mv /root/usr/share/autostart/plasma-netbook.desktop /root/usr/share/autostart/plasma-netbook.desktop_\nfi\nfi\n");
 
-            for(uchar a(0) ; a < 5 ; ++a)
+            for(uchar a(0) ; a < 6 ; ++a)
             {
                 QStr fpath("/etc/" % [a]() -> QStr {
                         switch(a) {
@@ -7283,6 +7288,8 @@ void systemback::on_livenew_clicked()
                             return "gdm/custom.conf";
                         case 4:
                             return "gdm3/daemon.conf";
+                        case 5:
+                            return "lightdm/lightdm.conf.d/90-hamonikr.conf";                            
                         default:
                             return "mdm/mdm.conf";
                         }
@@ -7296,6 +7303,8 @@ void systemback::on_livenew_clicked()
                             return "sed -ir -e \"s/^#?AutoLoginEnable=.*\\$/AutoLoginEnable=true/\" -e \"s/^#?AutoLoginUser=.*\\$/AutoLoginUser=" % guname() % "/\" -e \"s/^#?AutoReLogin=.*\\$/AutoReLogin=true/\" /root/etc/kde4/kdm/kdmrc";
                         case 2:
                             return "cat << EOF >/root/etc/sddm.conf\n[Autologin]\nUser=" % guname() % "\nSession=plasma.desktop\nEOF";
+                        case 5:
+                            return "cat << EOF >/root/etc/lightdm/lightdm.conf.d/90-hamonikr.conf\n[SeatDefaults]\nautologin-guest=false\nautologin-user=" % guname() % "\nautologin-user-timeout=0\nautologin-session=lightdm-autologin\nEOF";                            
                         default:
                             return "cat << EOF >/root" % fpath % "\n[daemon]\nAutomaticLoginEnable=True\nAutomaticLogin=" % guname() % "\nEOF";
                         }
@@ -7380,7 +7389,9 @@ void systemback::on_livenew_clicked()
 
     {
         QStr rpart, grxorg, srxorg, prmtrs;
-        if(sb::fsize(sb::sdir[2] % "/.sblivesystemcreate/" % lvtype % "/filesystem.squashfs") > 4294967295) rpart = "root=LABEL=SBROOT ";
+        
+        // if(sb::fsize(sb::sdir[2] % "/.sblivesystemcreate/" % lvtype % "/filesystem.squashfs") > 4294967295) rpart = "root=LABEL=SBROOT ";
+        if(sb::fsize(sb::sdir[2] % "/.sblivesystemcreate/" % lvtype % "/filesystem.squashfs") > 314572800) rpart = "root=LABEL=SBROOT ";
 
         if(sb::isfile("/etc/default/grub"))
         {
@@ -7419,8 +7430,8 @@ void systemback::on_livenew_clicked()
         if(xmntry) grxorg = "menuentry \"" % tr("Boot Live without xorg.conf file") % "\" {\n  set gfxpayload=keep\n  linux /" % lvtype % "/vmlinuz " % rpart % "boot=" % lvtype % " noxconf quiet splash" % prmtrs % "\n  initrd /" % lvtype % "/initrd.gz\n}\n\n", srxorg = "label noxconf\n  menu label " % tr("Boot Live without xorg.conf file") % "\n  kernel /" % lvtype % "/vmlinuz\n  append " % rpart % "boot=" % lvtype % " initrd=/" % lvtype % "/initrd.gz noxconf quiet splash" % prmtrs % "\n\n";
 #ifdef __amd64__
         if(sb::isfile("/usr/share/systemback/efi-amd64.bootfiles") && (sb::exec("tar -xJf /usr/share/systemback/efi-amd64.bootfiles -C \"" % sb::sdir[2] % "\"/.sblivesystemcreate --no-same-owner --no-same-permissions") || ! (sb::copy("/usr/share/systemback/splash.png", sb::sdir[2] % "/.sblivesystemcreate/boot/grub/splash.png") &&
-            sb::crtfile(sb::sdir[2] % "/.sblivesystemcreate/boot/grub/grub.cfg", "if loadfont /boot/grub/unicode.pf2\nthen\n  set gfxmode=auto\n  insmod efi_gop\n  insmod efi_uga\n  insmod gfxterm\n  terminal_output gfxterm\nfi\n\nset theme=/boot/grub/theme.cfg\n\nmenuentry \"" % tr("Boot Live system") % "\" {\n  set gfxpayload=keep\n  linux /" % lvtype % "/vmlinuz " % rpart % "boot=" % lvtype % " quiet splash" % prmtrs % "\n  initrd /" % lvtype % "/initrd.gz\n}\n\nmenuentry \"" % tr("Boot system installer") % "\" {\n  set gfxpayload=keep\n  linux /" % lvtype % "/vmlinuz " % rpart % "boot=" % lvtype % " finstall quiet splash" % prmtrs % "\n  initrd /" % lvtype % "/initrd.gz\n}\n\nmenuentry \"" % tr("Boot Live in safe graphics mode") % "\" {\n  set gfxpayload=keep\n  linux /" % lvtype % "/vmlinuz " % rpart % "boot=" % lvtype % " xforcevesa nomodeset quiet splash" % prmtrs % "\n  initrd /" % lvtype % "/initrd.gz\n}\n\n" % grxorg % "menuentry \"" % tr("Boot Live in debug mode") % "\" {\n  set gfxpayload=keep\n  linux /" % lvtype % "/vmlinuz " % rpart % "boot=" % lvtype % prmtrs % "\n  initrd /" % lvtype % "/initrd.gz\n}\n") &&
-            sb::crtfile(sb::sdir[2] % "/.sblivesystemcreate/boot/grub/theme.cfg", "title-color: \"white\"\ntitle-text: \"Systemback Live (" % ifname % ")\"\ntitle-font: \"Sans Regular 16\"\ndesktop-color: \"black\"\ndesktop-image: \"/boot/grub/splash.png\"\nmessage-color: \"white\"\nmessage-bg-color: \"black\"\nterminal-font: \"Sans Regular 12\"\n\n+ boot_menu {\n  top = 150\n  left = 15%\n  width = 75%\n  height = " % (xmntry ? "150" : "130") % "\n  item_font = \"Sans Regular 12\"\n  item_color = \"grey\"\n  selected_item_color = \"white\"\n  item_height = 20\n  item_padding = 15\n  item_spacing = 5\n}\n\n+ vbox {\n  top = 100%\n  left = 2%\n  + label {text = \"" % tr("Press 'E' key to edit") % "\" font = \"Sans 10\" color = \"white\" align = \"left\"}\n}\n") &&
+            sb::crtfile(sb::sdir[2] % "/.sblivesystemcreate/boot/grub/grub.cfg", "if loadfont /boot/grub/nanum.pf2\nthen\n  loadfont /boot/grub/nanum.pf2\n  set gfxmode=auto\n  insmod efi_gop\n  insmod efi_uga\n  insmod gfxterm\n  terminal_output gfxterm\nfi\n\nset theme=/boot/grub/theme.cfg\n\nmenuentry \"" % tr("Boot Live system") % "\" {\n  set gfxpayload=keep\n  linux /" % lvtype % "/vmlinuz " % rpart % "boot=" % lvtype % " quiet splash" % prmtrs % "\n  initrd /" % lvtype % "/initrd.gz\n}\n\nmenuentry \"" % tr("Boot system installer") % "\" {\n  set gfxpayload=keep\n  linux /" % lvtype % "/vmlinuz " % rpart % "boot=" % lvtype % " finstall quiet splash" % prmtrs % "\n  initrd /" % lvtype % "/initrd.gz\n}\n\nmenuentry \"" % tr("Boot Live in safe graphics mode") % "\" {\n  set gfxpayload=keep\n  linux /" % lvtype % "/vmlinuz " % rpart % "boot=" % lvtype % " xforcevesa nomodeset quiet splash" % prmtrs % "\n  initrd /" % lvtype % "/initrd.gz\n}\n\n" % grxorg % "menuentry \"" % tr("Boot Live in debug mode") % "\" {\n  set gfxpayload=keep\n  linux /" % lvtype % "/vmlinuz " % rpart % "boot=" % lvtype % prmtrs % "\n  initrd /" % lvtype % "/initrd.gz\n}\n") &&
+            sb::crtfile(sb::sdir[2] % "/.sblivesystemcreate/boot/grub/theme.cfg", "title-color: \"white\"\ntitle-text: \"Systemback Live (" % ifname % ")\"\ntitle-font: \"NanumSquare Regular 16\"\ndesktop-color: \"black\"\ndesktop-image: \"/boot/grub/splash.png\"\nmessage-color: \"white\"\nmessage-bg-color: \"black\"\nterminal-font: \"Unifont Regular 16\"\n\n+ boot_menu {\n  top = 150\n  left = 15%\n  width = 75%\n  height = " % (xmntry ? "150" : "130") % "\n  item_font = \"NanumSquare Regular 16\"\n  item_color = \"grey\"\n  selected_item_color = \"white\"\n  item_height = 20\n  item_padding = 15\n  item_spacing = 5\n}\n\n+ vbox {\n  top = 100%\n  left = 2%\n  + label {text = \"" % tr("Press 'E' key to edit") % "\" font = \"NanumSquare Regular 16\" color = \"white\" align = \"left\"}\n}\n") &&
             sb::crtfile(sb::sdir[2] % "/.sblivesystemcreate/boot/grub/loopback.cfg", "menuentry \"" % tr("Boot Live system") % "\" {\n  set gfxpayload=keep\n  linux /" % lvtype % "/vmlinuz " % rpart % "boot=" % lvtype % " iso-scan/filename=$iso_path quiet splash" % prmtrs % "\n  initrd /" % lvtype % "/initrd.gz\n}\n\nmenuentry \"" % tr("Boot system installer") % "\" {\n  set gfxpayload=keep\n  linux /" % lvtype % "/vmlinuz " % rpart % "boot=" % lvtype % " iso-scan/filename=$iso_path finstall quiet splash" % prmtrs % "\n  initrd /" % lvtype % "/initrd.gz\n}\n\nmenuentry \"" % tr("Boot Live in safe graphics mode") % "\" {\n  set gfxpayload=keep\n  linux /" % lvtype % "/vmlinuz " % rpart % "boot=" % lvtype % " iso-scan/filename=$iso_path xforcevesa nomodeset quiet splash" % prmtrs % "\n  initrd /" % lvtype % "/initrd.gz\n}\n\n" % grxorg % "menuentry \"" % tr("Boot Live in debug mode") % "\" {\n  set gfxpayload=keep\n  linux /" % lvtype % "/vmlinuz " % rpart % "boot=" % lvtype % " iso-scan/filename=$iso_path" % prmtrs % "\n  initrd /" % lvtype % "/initrd.gz\n}\n")))) return err();
 #endif
         if(! sb::crtfile(sb::sdir[2] % "/.sblivesystemcreate/syslinux/syslinux.cfg", "default vesamenu.c32\nprompt 0\ntimeout 100\n\nmenu title Systemback Live (" % ifname % ")\nmenu tabmsg " % tr("Press TAB key to edit") % "\nmenu background splash.png\n\nlabel live\n  menu label " % tr("Boot Live system") % "\n  kernel /" % lvtype % "/vmlinuz\n  append " % rpart % "boot=" % lvtype % " initrd=/" % lvtype % "/initrd.gz quiet splash" % prmtrs % "\n\nlabel install\n  menu label " % tr("Boot system installer") % "\n  kernel /" % lvtype % "/vmlinuz\n  append " % rpart % "boot=" % lvtype % " initrd=/" % lvtype % "/initrd.gz finstall quiet splash" % prmtrs % "\n\nlabel safe\n  menu label " % tr("Boot Live in safe graphics mode") % "\n  kernel /" % lvtype % "/vmlinuz\n  append " % rpart % "boot=" % lvtype % " initrd=/" % lvtype % "/initrd.gz xforcevesa nomodeset quiet splash" % prmtrs % "\n\n" % srxorg % "label debug\n  menu label " % tr("Boot Live in debug mode") % "\n  kernel /" % lvtype % "/vmlinuz\n  append " % rpart % "boot=" % lvtype % " initrd=/" % lvtype % "/initrd.gz" % prmtrs % '\n')
@@ -7445,7 +7456,8 @@ void systemback::on_livenew_clicked()
     {
         ullong isize(sb::fsize(sb::sdir[2] % '/' % ifname % ".sblive"));
 
-        if(isize < 4294967295 && isize + 52428800 < sb::dfree(sb::sdir[2]))
+        // if(isize < 4294967295 && isize + 52428800 < sb::dfree(sb::sdir[2]))
+        if(isize < 314572800 && isize + 52428800 < sb::dfree(sb::sdir[2]))
         {
             pset(20, " 4/3+1"),
             sb::Progress = -1;
