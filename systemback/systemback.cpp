@@ -1729,13 +1729,13 @@ void systemback::abtreleased()
 {
     if(ui->homepage1->foregroundRole() == QPalette::Highlight)
         ui->homepage1->setForegroundRole(QPalette::Text),
-        sb::exec("su -c \"xdg-open https://github.com/fconidi &\" " % guname(), sb::Bckgrnd);
+        sb::exec("su -c \"xdg-open https://github.com/hamonikr/systemback &\" " % guname(), sb::Bckgrnd);
     else if(ui->email->foregroundRole() == QPalette::Highlight)
         ui->email->setForegroundRole(QPalette::Text),
-        sb::exec("su -c \"xdg-email edmondweblog@gmail.com &\" " % guname(), sb::Bckgrnd);
+        sb::exec("su -c \"xdg-email root@hamonikr.org &\" " % guname(), sb::Bckgrnd);
     else if(ui->donate->foregroundRole() == QPalette::Highlight)
         ui->donate->setForegroundRole(QPalette::Text),
-        sb::exec("su -c \"xdg-open 'https://francoconidi.it/' &\" " % guname(), sb::Bckgrnd);
+        sb::exec("su -c \"xdg-open 'https://hamonikr.org/' &\" " % guname(), sb::Bckgrnd);
 }
 
 void systemback::foutpnt()

@@ -858,7 +858,7 @@
         </rect>
        </property>
        <property name="text">
-        <string notr="true">edmond, GPLv3</string>
+        <string notr="true">HamoniKR</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -1785,7 +1785,7 @@
         </rect>
        </property>
        <property name="text">
-        <string notr="true">edmond, GPLv3</string>
+        <string notr="true">HamoniKR</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2121,7 +2121,7 @@
         </rect>
        </property>
        <property name="text">
-        <string notr="true">edmond, GPLv3</string>
+        <string notr="true">HamoniKR</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -2615,7 +2615,7 @@
         <string>Simple system backup and restore application with extra features. </string>
        </property>
        <property name="text">
-        <string>All the credits for this tool to Krisztián Kende. https://sourceforge.net/u/kendek/profile</string>
+        <string>This program is an improved version of the systemback project.</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_29">
@@ -2649,7 +2649,7 @@
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="text">
-        <string notr="true">https://github.com/fconidi</string>
+        <string notr="true">https://github.com/hamonikr/systemback</string>
        </property>
       </widget>
       <widget class="lblevent" name="homepage2">
@@ -2670,7 +2670,7 @@
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="text">
-        <string notr="true">https://francoconidi.it/</string>
+        <string notr="true">https://hamonikr.org/</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_31">
@@ -2704,7 +2704,7 @@
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="text">
-        <string notr="true">edmondweblog@gmail.com</string>
+        <string notr="true">root@hamonikr.org</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_33">
@@ -2738,10 +2738,10 @@
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="toolTip">
-        <string notr="true">https://paypal.me/francoconidi</string>
+        <string notr="true">https://www.patreon.com/hamonikr</string>
        </property>
        <property name="text">
-        <string notr="true">PayPal</string>
+        <string notr="true">Patreon</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_34">
@@ -2854,7 +2854,7 @@
         </rect>
        </property>
        <property name="text">
-        <string notr="true">(c) 2018, edmond</string>
+        <string notr="true">(c) 2021, HamoniKR</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -4046,7 +4046,7 @@
         </rect>
        </property>
        <property name="text">
-        <string notr="true">edmond, GPLv3</string>
+        <string notr="true">HamoniKR</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -6170,7 +6170,7 @@
         </rect>
        </property>
        <property name="text">
-        <string notr="true">edmond, GPLv3</string>
+        <string notr="true">HamoniKR</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -6672,7 +6672,7 @@
         </rect>
        </property>
        <property name="text">
-        <string notr="true">edmond, GPLv3</string>
+        <string notr="true">HamoniKR</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
