@@ -2911,7 +2911,7 @@
         </rect>
        </property>
        <property name="text">
-        <string notr="true">(c) 2018, edmond</string>
+        <string notr="true">(c) 2021, HamoniKR</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
