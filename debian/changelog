@@ -1,3 +1,9 @@
+systemback (1.9.4hamonikr2) jin; urgency=low
+
+  * Change author and git url
+
+ -- HamoniKR <pkg@hamonikr.org>  Thu, 15 Apr 2021 13:47:55 +0900
+
 systemback (1.9.4hamonikr1) jin; urgency=low
 
   * Update systemback/systemback.cpp
@@ -23,7 +29,7 @@ systemback (1.9.4) release; urgency=low
   * Fix Live creation when the '/snap' directory is missing
 
   * 1.8.400
-  * Add support to installed Snap packages
+  * Add support to installed Snap packaggites
   * Remove support to old (version 1.5 and below) restore points
   * Fix possible segmentation fault when checking directory mount status
   * Fix translation files detection in DBGLEV=3 mode

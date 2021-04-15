@@ -178,7 +178,7 @@ uchar systemback::clistart()
     if(! sb::pnames[14].isEmpty()) printw(bstr("  F ─ " % sb::left(sb::pnames[14], COLS - 7) % '\n'));
     printw(bstr("\n G ─ " % tr("Create new") % "\n Q ─ " % tr("Quit") % '\n')),
     attron(COLOR_PAIR(2)),
-    mvprintw(LINES - 1, COLS - 13, "edmond, GPLv3"),
+    mvprintw(LINES - 1, COLS - 13, "HamoniKR"),
     refresh();
     if(! sb::eout.isEmpty()) sb::eout.clear();
     if(! pname.isEmpty()) pname.clear();
@@ -245,7 +245,7 @@ uchar systemback::clistart()
     attron(COLOR_PAIR(3)),
     printw(bstr("\n\n 1 ─ " % tr("Delete") % "\n 2 ─ " % tr("System restore") % " ▸\n B ─ ◂ " % tr("Back"))),
     attron(COLOR_PAIR(2)),
-    mvprintw(LINES - 1, COLS - 13, "edmond, GPLv3"),
+    mvprintw(LINES - 1, COLS - 13, "HamoniKR"),
     refresh();
 
     forever
@@ -380,7 +380,7 @@ uchar systemback::restore()
         attron(COLOR_PAIR(3)),
         printw(bstr("\n\n   3 ─ " % tr("Complete configuration files restore") % "\n   4 ─ " % tr("Keep newly installed configuration files") % "\n\n C ─ " % tr("Cancel"))),
         attron(COLOR_PAIR(2)),
-        mvprintw(LINES - 1, COLS - 13, "edmond, GPLv3"),
+        mvprintw(LINES - 1, COLS - 13, "HamoniKR"),
         refresh();
 
         do {
@@ -427,7 +427,7 @@ uchar systemback::restore()
             {
                 printw(bstr("\n\n " % tr("You want to keep the current fstab file?") % ' ' % tr("(Y/N)"))),
                 attron(COLOR_PAIR(2)),
-                mvprintw(LINES - 1, COLS - 13, "edmond, GPLv3"),
+                mvprintw(LINES - 1, COLS - 13, "HamoniKR"),
                 refresh();
 
                 do {
@@ -455,7 +455,7 @@ uchar systemback::restore()
                 {
                     printw(bstr("\n\n " % tr("Reinstall the GRUB 2 bootloader?") % ' ' % tr("(Y/N)"))),
                     attron(COLOR_PAIR(2)),
-                    mvprintw(LINES - 1, COLS - 13, "edmond, GPLv3"),
+                    mvprintw(LINES - 1, COLS - 13, "HamoniKR"),
                     refresh();
 
                     do {
@@ -483,7 +483,7 @@ uchar systemback::restore()
             {
                 printw(bstr("\n\n " % tr("Reinstall the GRUB 2 bootloader?") % ' ' % tr("(Y/N)"))),
                 attron(COLOR_PAIR(2)),
-                mvprintw(LINES - 1, COLS - 13, "edmond, GPLv3"),
+                mvprintw(LINES - 1, COLS - 13, "HamoniKR"),
                 refresh();
 
                 do {
@@ -512,7 +512,7 @@ uchar systemback::restore()
     attron(COLOR_PAIR(3)),
     printw(bstr("\n\n " % tr("Start the restore?") % ' ' % tr("(Y/N)"))),
     attron(COLOR_PAIR(2)),
-    mvprintw(LINES - 1, COLS - 13, "edmond, GPLv3"),
+    mvprintw(LINES - 1, COLS - 13, "HamoniKR"),
     refresh();
     bool rstart(false);
 
@@ -552,7 +552,7 @@ uchar systemback::restore()
     attron(COLOR_PAIR(3)),
     printw(bstr("\n\n " % twrp(mthd < 3 ? tr("Press 'ENTER' key to reboot the computer, or 'Q' to quit.") : tr("Press 'ENTER' key to quit.")))),
     attron(COLOR_PAIR(2)),
-    mvprintw(LINES - 1, COLS - 13, "edmond, GPLv3"),
+    mvprintw(LINES - 1, COLS - 13, "HamoniKR"),
     refresh();
 
     forever
@@ -648,7 +648,7 @@ void systemback::progress(uchar status)
                 }()));
 
             attron(COLOR_PAIR(2)),
-            mvprintw(LINES - 1, COLS - 13, "edmond, GPLv3"),
+            mvprintw(LINES - 1, COLS - 13, "HamoniKR"),
             refresh();
             if(a < 3) sb::delay(500);
         }
