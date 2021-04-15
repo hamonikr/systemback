@@ -1735,7 +1735,7 @@ void systemback::abtreleased()
         sb::exec("su -c \"xdg-email root@hamonikr.org &\" " % guname(), sb::Bckgrnd);
     else if(ui->donate->foregroundRole() == QPalette::Highlight)
         ui->donate->setForegroundRole(QPalette::Text),
-        sb::exec("su -c \"xdg-open 'https://hamonikr.org/' &\" " % guname(), sb::Bckgrnd);
+        sb::exec("su -c \"xdg-open 'https://www.patreon.com/hamonikr' &\" " % guname(), sb::Bckgrnd);
 }
 
 void systemback::foutpnt()
