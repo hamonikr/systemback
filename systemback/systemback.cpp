@@ -2647,7 +2647,8 @@ void systemback::livewrite()
         {
             if(! (sb::mkpart(ldev, 1048576, 104857600) && sb::mkpart(ldev)) || intrrpt) return err(338);
             sb::delay(100);
-            if(sb::exec("mkfs.ext2 -FL SBROOT " % ldev % (ismmc ? "p" : nullptr) % '2') || intrrpt) return err(338);
+            // if(sb::exec("mkfs.ext2 -FL SBROOT " % ldev % (ismmc ? "p" : nullptr) % '2') || intrrpt) return err(338);
+            if(sb::exec("mkfs.ext4 -FL SBROOT " % ldev % (ismmc ? "p" : nullptr) % '2') || intrrpt) return err(338);
             lrdir = "sbroot";
         }
 
@@ -7238,7 +7239,7 @@ void systemback::on_livenew_clicked()
         // Fix : casper boot fail bug
         if(sb::isfile("/usr/share/initramfs-tools/scripts/casper"))
         {
-            sb::exec("sed -i -E 's/(panic \"\/cow)(.+)/true/g' /usr/share/initramfs-tools/scripts/casper");
+            sb::exec("sed -i -E 's/(panic \"/cow)(.+)/true/g' /usr/share/initramfs-tools/scripts/casper");
         }
 
         if(did.isEmpty()) did = "Ubuntu";
@@ -7274,7 +7275,7 @@ void systemback::on_livenew_clicked()
     sb::crtfile("/usr/share/initramfs-tools/scripts/init-bottom/sbfinstall", [this]() -> QStr {
             QStr ftxt("#!/bin/sh\nif [ \"$1\" != prereqs ] && grep finstall /proc/cmdline >/dev/null 2>&1\nthen\nif [ -f /root/home/" % guname() % "/.config/autostart/dropbox.desktop ]\nthen rm /root/home/" % guname() % "/.config/autostart/dropbox.desktop\nfi\nif [ -f /root/usr/bin/ksplashqml ]\nthen\nchmod -x /root/usr/bin/ksplash* /root/usr/bin/plasma*\nif [ -f /root/usr/share/autostart/plasma-desktop.desktop ]\nthen mv /root/usr/share/autostart/plasma-desktop.desktop /root/usr/share/autostart/plasma-desktop.desktop_\nfi\nif [ -f /root/usr/share/autostart/plasma-netbook.desktop ]\nthen mv /root/usr/share/autostart/plasma-netbook.desktop /root/usr/share/autostart/plasma-netbook.desktop_\nfi\nfi\n");
 
-            for(uchar a(0) ; a < 6 ; ++a)
+            for(uchar a(0) ; a < 5 ; ++a)
             {
                 QStr fpath("/etc/" % [a]() -> QStr {
                         switch(a) {
@@ -7288,8 +7289,6 @@ void systemback::on_livenew_clicked()
                             return "gdm/custom.conf";
                         case 4:
                             return "gdm3/daemon.conf";
-                        case 5:
-                            return "lightdm/lightdm.conf.d/90-hamonikr.conf";                            
                         default:
                             return "mdm/mdm.conf";
                         }
@@ -7303,8 +7302,6 @@ void systemback::on_livenew_clicked()
                             return "sed -ir -e \"s/^#?AutoLoginEnable=.*\\$/AutoLoginEnable=true/\" -e \"s/^#?AutoLoginUser=.*\\$/AutoLoginUser=" % guname() % "/\" -e \"s/^#?AutoReLogin=.*\\$/AutoReLogin=true/\" /root/etc/kde4/kdm/kdmrc";
                         case 2:
                             return "cat << EOF >/root/etc/sddm.conf\n[Autologin]\nUser=" % guname() % "\nSession=plasma.desktop\nEOF";
-                        case 5:
-                            return "cat << EOF >/root/etc/lightdm/lightdm.conf.d/90-hamonikr.conf\n[SeatDefaults]\nautologin-guest=false\nautologin-user=" % guname() % "\nautologin-user-timeout=0\nautologin-session=lightdm-autologin\nEOF";                            
                         default:
                             return "cat << EOF >/root" % fpath % "\n[daemon]\nAutomaticLoginEnable=True\nAutomaticLogin=" % guname() % "\nEOF";
                         }

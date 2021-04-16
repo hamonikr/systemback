@@ -1,3 +1,9 @@
+systemback (1.9.4hamonikr4) jin; urgency=low
+
+  * Change USB Filesystem as ext4
+
+ -- HamoniKR <pkg@hamonikr.org>  Fri, 16 Apr 2021 16:20:48 +0900
+
 systemback (1.9.4hamonikr3) jin; urgency=low
 
   * Disable ISO convert feature for persistent usb
