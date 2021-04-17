@@ -59,3 +59,17 @@ blacklist {
 
 # ll /dev/disk/by-id/ | grep sda
 lrwxrwxrwx 1 root root  9 Sep  9 14:47 scsi-3600508b1001c75ccf265ebc995aab8f4 -> ../../sda
+
+> TRY #1
+sudo systemctl stop  multipath-tools.service
+
+sudo apt purge multipath-tools
+
+--
+쓰는 도중에 확인한 마운트 정보
+
+hamonikr@hamonikr-jin:/.sblivesystemwrite$ cat /etc/mtab 
+
+/dev/sdc1 /.sblivesystemwrite/sblive vfat rw,noatime,fmask=0000,dmask=0000,allow_utime=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro 0 0
+/dev/sdc2 /.sblivesystemwrite/sbroot ext4 rw,noatime 0 0
+

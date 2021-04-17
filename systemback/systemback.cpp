@@ -2676,8 +2676,12 @@ void systemback::livewrite()
     {
         if(sb::exec("tar -xf \"" % sb::sdir[2] % "\"/" % sb::left(ui->livelist->currentItem()->text(), sb::instr(ui->livelist->currentItem()->text(), " ") - 1) % ".sblive -C /.sblivesystemwrite/sblive --no-same-owner --no-same-permissions", sb::Prgrss)) return err(323);
     }
-    else if(sb::exec("tar -xf \"" % sb::sdir[2] % "\"/" % sb::left(ui->livelist->currentItem()->text(), sb::instr(ui->livelist->currentItem()->text(), " ") - 1) % ".sblive -C /.sblivesystemwrite/sblive --exclude=casper/filesystem.squashfs --exclude=live/filesystem.squashfs --no-same-owner --no-same-permissions") || sb::exec("tar -xf \"" % sb::sdir[2] % "\"/" % sb::left(ui->livelist->currentItem()->text(), sb::instr(ui->livelist->currentItem()->text(), " ") - 1) % ".sblive -C /.sblivesystemwrite/sbroot --exclude=.disk --exclude=boot --exclude=EFI --exclude=syslinux --exclude=casper/initrd.gz --exclude=casper/vmlinuz --exclude=live/initrd.gz --exclude=live/vmlinuz --no-same-owner --no-same-permissions", sb::Prgrss))
-        return err(323);
+    else 
+    {
+        if(sb::exec("tar -xf \"" % sb::sdir[2] % "\"/" % sb::left(ui->livelist->currentItem()->text(), sb::instr(ui->livelist->currentItem()->text(), " ") - 1) % ".sblive -C /.sblivesystemwrite/sblive --exclude=casper/filesystem.squashfs --exclude=live/filesystem.squashfs --no-same-owner --no-same-permissions", sb::Prgrss)) return err(400);
+
+        if(sb::exec("tar -xf \"" % sb::sdir[2] % "\"/" % sb::left(ui->livelist->currentItem()->text(), sb::instr(ui->livelist->currentItem()->text(), " ") - 1) % ".sblive -C /.sblivesystemwrite/sbroot --exclude=.disk --exclude=boot --exclude=EFI --exclude=syslinux --exclude=casper/initrd.gz --exclude=casper/vmlinuz --exclude=live/initrd.gz --exclude=live/vmlinuz --no-same-owner --no-same-permissions", sb::Prgrss)) return err(401);        
+    }
 
     pset(1);
     if(sb::exec("syslinux -ifd syslinux " % ldev % (ismmc ? "p" : nullptr) % '1')) return err();
@@ -2904,6 +2908,10 @@ void systemback::dialogopen(ushort dlg, cbstr &dev)
                         return tr("The Live write is aborted!") % "<p>" % tr("The specified partition could not be formatted (in use or unavailable).") % "<p><b>" % dev.data;
                     case 339:
                         return tr("The system restoration is aborted!") % "<p>" % tr("There is not enough free space.");
+                    case 400:
+                        return tr("The Live write is aborted!") % "<p>" % tr("An error occurred while writing SBLIVE partition.");
+                    case 401:
+                        return tr("The Live write is aborted!") % "<p>" % tr("An error occurred while writing SBROOT partition.");                        
                     default:
                         return tr("The system repair is aborted!") % "<p>" % tr("There is not enough free space.");
                     }

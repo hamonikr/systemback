@@ -840,6 +840,14 @@
         <translation>라이브 시스템 파일을 해제하는 동안 오류가 발생하였습니다.</translation>
     </message>
     <message>
+        <source>An error occurred while writing SBLIVE partition.</source>
+        <translation>SBLIVE 파티션을 작성하는 중 오류가 발생하였습니다.</translation>
+    </message>
+    <message>
+        <source>An error occurred while writing SBROOT partition.</source>
+        <translation>SBROOT 파티션을 작성하는 중 오류가 발생하였습니다.</translation>
+    </message>    
+    <message>
         <source>The Live conversion is aborted!</source>
         <translation>라이브 시스템 변환이 중단되었습니다.</translation>
     </message>
