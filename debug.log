@@ -1,0 +1,62 @@
+Apr 17 13:14:31 hamonikr-jin multipath: sdc: can't store path info
+Apr 17 13:14:31 hamonikr-jin multipathd[930]: sdc: spurious uevent, path not found
+Apr 17 13:14:31 hamonikr-jin multipathd[930]: uevent trigger error
+Apr 17 13:14:31 hamonikr-jin kernel: [ 2826.718095]  sdc: sdc1
+Apr 17 13:14:31 hamonikr-jin multipath: sdc: can't store path info
+Apr 17 13:14:31 hamonikr-jin multipathd[930]: sdc: spurious uevent, path not found
+Apr 17 13:14:31 hamonikr-jin multipathd[930]: uevent trigger error
+Apr 17 13:14:32 hamonikr-jin multipath: sdc: can't store path info
+Apr 17 13:14:32 hamonikr-jin multipathd[930]: sdc: spurious uevent, path not found
+Apr 17 13:14:32 hamonikr-jin multipathd[930]: uevent trigger error
+
+
+
+Apr 17 13:14:55 hamonikr-jin onedrive[2526]: Starting a sync with OneDrive
+Apr 17 13:14:55 hamonikr-jin onedrive[2526]: Syncing changes from OneDrive ...
+Apr 17 13:14:57 hamonikr-jin onedrive[2526]: Sync with OneDrive is complete
+Apr 17 13:15:01 hamonikr-jin CRON[21391]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+Apr 17 13:15:25 hamonikr-jin multipath: sdc: can't store path info
+Apr 17 13:15:25 hamonikr-jin multipathd[930]: sdc: spurious uevent, path not found
+Apr 17 13:15:25 hamonikr-jin multipathd[930]: uevent trigger error
+Apr 17 13:15:26 hamonikr-jin kernel: [ 2881.142777]  sdc: sdc1 sdc2
+Apr 17 13:15:26 hamonikr-jin multipath: sdc: can't store path info
+Apr 17 13:15:26 hamonikr-jin multipathd[930]: sdc: spurious uevent, path not found
+Apr 17 13:15:26 hamonikr-jin multipathd[930]: uevent trigger error
+Apr 17 13:15:26 hamonikr-jin kernel: [ 2881.310358] EXT4-fs (sdc2): mounted filesystem with ordered data mode. Opts: (null)
+Apr 17 13:15:26 hamonikr-jin systemd[2517]: \x2esblivesystemwrite-sblive.mount: Succeeded.
+Apr 17 13:15:26 hamonikr-jin systemd[1]: \x2esblivesystemwrite-sblive.mount: Succeeded.
+Apr 17 13:15:30 hamonikr-jin systemd[1]: \x2esblivesystemwrite-sbroot.mount: Succeeded.
+Apr 17 13:15:30 hamonikr-jin systemd[2517]: \x2esblivesystemwrite-sbroot.mount: Succeeded.
+
+--
+https://access.redhat.com/solutions/2651581
+$ ll /dev/disk/by-id/ | grep sdc
+lrwxrwxrwx 1 root root   9  4월 17 13:15 usb-Specific_STORAGE_DEVICE_76254190-0:0 -> ../../sdc
+lrwxrwxrwx 1 root root  10  4월 17 13:15 usb-Specific_STORAGE_DEVICE_76254190-0:0-part1 -> ../../sdc1
+lrwxrwxrwx 1 root root  10  4월 17 13:15 usb-Specific_STORAGE_DEVICE_76254190-0:0-part2 -> ../../sdc2
+
+
+# cat /etc/multipath.conf
+defaults {
+    user_friendly_names yes
+}
+blacklist {
+    wwid Specific_STORAGE_DEVICE_76254190
+}
+
+OR
+
+# cat /etc/multipath.conf
+defaults {
+    user_friendly_names yes
+}
+blacklist {
+  devnode "^(ram|raw|loop|fd|md|dm-|sr|scd|st)[0-9]*"
+  devnode "^(hd|xvd|vd)[a-z]*"
+  devnode "ofsctl"
+  devnode "^asm/*" 
+}
+-------
+
+# ll /dev/disk/by-id/ | grep sda
+lrwxrwxrwx 1 root root  9 Sep  9 14:47 scsi-3600508b1001c75ccf265ebc995aab8f4 -> ../../sda
