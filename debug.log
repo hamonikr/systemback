@@ -1,20 +1,19 @@
-Apr 17 13:14:31 hamonikr-jin multipath: sdc: can't store path info
-Apr 17 13:14:31 hamonikr-jin multipathd[930]: sdc: spurious uevent, path not found
-Apr 17 13:14:31 hamonikr-jin multipathd[930]: uevent trigger error
-Apr 17 13:14:31 hamonikr-jin kernel: [ 2826.718095]  sdc: sdc1
-Apr 17 13:14:31 hamonikr-jin multipath: sdc: can't store path info
-Apr 17 13:14:31 hamonikr-jin multipathd[930]: sdc: spurious uevent, path not found
-Apr 17 13:14:31 hamonikr-jin multipathd[930]: uevent trigger error
-Apr 17 13:14:32 hamonikr-jin multipath: sdc: can't store path info
-Apr 17 13:14:32 hamonikr-jin multipathd[930]: sdc: spurious uevent, path not found
-Apr 17 13:14:32 hamonikr-jin multipathd[930]: uevent trigger error
+* NORAML LOG
+Apr 17 13:40:42 jin systemd[1]: Started Run anacron jobs.
+Apr 17 13:40:42 jin anacron[2960]: Anacron 2.3 started on 2021-04-17
+Apr 17 13:40:42 jin anacron[2960]: Normal exit (0 jobs run)
+Apr 17 13:40:42 jin systemd[1]: anacron.service: Succeeded.
+Apr 17 13:40:49 jin kernel: [  109.324001]  sdc: sdc1 sdc2
+Apr 17 13:40:49 jin kernel: [  109.502578] EXT4-fs (sdc2): mounted filesystem with ordered data mode. Opts: (null)
+Apr 17 13:41:12 jin systemd[1194]: Started VTE child process 3024 launched by gnome-terminal-server process 2166.
+Apr 17 13:43:17 jin kernel: [  257.848770] systemback (2406): drop_caches: 3
+Apr 17 13:43:17 jin systemd[1194]: \x2esblivesystemwrite-sblive.mount: Succeeded.
+Apr 17 13:43:17 jin systemd[1]: \x2esblivesystemwrite-sblive.mount: Succeeded.
+Apr 17 13:43:18 jin systemd[1]: \x2esblivesystemwrite-sbroot.mount: Succeeded.
+Apr 17 13:43:18 jin systemd[1194]: \x2esblivesystemwrite-sbroot.mount: Succeeded.
 
 
-
-Apr 17 13:14:55 hamonikr-jin onedrive[2526]: Starting a sync with OneDrive
-Apr 17 13:14:55 hamonikr-jin onedrive[2526]: Syncing changes from OneDrive ...
-Apr 17 13:14:57 hamonikr-jin onedrive[2526]: Sync with OneDrive is complete
-Apr 17 13:15:01 hamonikr-jin CRON[21391]: (root) CMD (command -v debian-sa1 > /dev/null && debian-sa1 1 1)
+* ERROR LOG
 Apr 17 13:15:25 hamonikr-jin multipath: sdc: can't store path info
 Apr 17 13:15:25 hamonikr-jin multipathd[930]: sdc: spurious uevent, path not found
 Apr 17 13:15:25 hamonikr-jin multipathd[930]: uevent trigger error
