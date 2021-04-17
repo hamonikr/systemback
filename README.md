@@ -39,7 +39,7 @@ systemback 프로그램을 하모니카에서 사용할 수 있도록 새롭게 
 
 ![screen4](doc/systemback-4.png)
 
-보다 사용법은 커뮤니티의 링크를 참고하세요.
+보다 자세한 사용법은 링크된 문서를 참고하세요.
 https://hamonikr.org/used_hamonikr/95052
 
 ## 프로그램 설치
