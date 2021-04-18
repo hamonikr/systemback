@@ -5461,7 +5461,7 @@ void systemback::on_livelist_currentItemChanged(QLWI *crrnt)
             ullong isize(sb::fsize(sb::sdir[2] % '/' % sb::left(crrnt->text(), sb::instr(crrnt->text(), " ") - 1) % ".sblive"));
 
             // if(isize && isize < 4294967295 && isize * 2 + 104857600 < sb::dfree(sb::sdir[2]) && ! sb::exist(sb::sdir[2] % '/' % sb::left(crrnt->text(), sb::instr(crrnt->text(), " ") - 1) % ".iso"))
-            if(isize && isize < 314572800 && isize * 2 + 104857600 < sb::dfree(sb::sdir[2]) && ! sb::exist(sb::sdir[2] % '/' % sb::left(crrnt->text(), sb::instr(crrnt->text(), " ") - 1) % ".iso"))
+            if(isize && isize < 34359738368 && isize * 2 + 104857600 < sb::dfree(sb::sdir[2]) && ! sb::exist(sb::sdir[2] % '/' % sb::left(crrnt->text(), sb::instr(crrnt->text(), " ") - 1) % ".iso"))
             {
                 if(! ui->liveconvert->isEnabled()) ui->liveconvert->setEnabled(true);
             }
@@ -7464,14 +7464,14 @@ void systemback::on_livenew_clicked()
         ullong isize(sb::fsize(sb::sdir[2] % '/' % ifname % ".sblive"));
 
         // if(isize < 4294967295 && isize + 52428800 < sb::dfree(sb::sdir[2]))
-        if(isize < 314572800 && isize + 52428800 < sb::dfree(sb::sdir[2]))
+        if(isize < 34359738368 && isize + 52428800 < sb::dfree(sb::sdir[2]))
         {
             pset(20, " 4/3+1"),
             sb::Progress = -1;
             if(! (sb::rename(sb::sdir[2] % "/.sblivesystemcreate/syslinux/syslinux.cfg", sb::sdir[2] % "/.sblivesystemcreate/syslinux/isolinux.cfg") && sb::rename(sb::sdir[2] % "/.sblivesystemcreate/syslinux", sb::sdir[2] % "/.sblivesystemcreate/isolinux")) || intrrpt) return err();
             ui->progressbar->setValue(0);
 
-            if(sb::exec("genisoimage -r -V sblive -cache-inodes -J -l -b isolinux/isolinux.bin -no-emul-boot -boot-load-size 4 -boot-info-table -c isolinux/boot.cat -o \"" % sb::sdir[2] % "\"/" % ifname % ".iso \"" % sb::sdir[2] % "\"/.sblivesystemcreate", sb::Prgrss))
+            if(sb::exec("genisoimage -iso-level 3 -allow-limited-size -r -V H-LIVE -cache-inodes -J -l -b isolinux/isolinux.bin -no-emul-boot -boot-load-size 4 -boot-info-table -c isolinux/boot.cat -o \"" % sb::sdir[2] % "\"/" % ifname % ".iso \"" % sb::sdir[2] % "\"/.sblivesystemcreate", sb::Prgrss))
             {
                 if(sb::isfile(sb::sdir[2] % '/' % ifname % ".iso")) sb::remove(sb::sdir[2] % '/' % ifname % ".iso");
                 return err(312);
@@ -7509,7 +7509,7 @@ void systemback::on_liveconvert_clicked()
     pset(21, " 2/2"),
     sb::Progress = -1,
     ui->progressbar->setValue(0);
-    if(sb::exec("genisoimage -r -V sblive -cache-inodes -J -l -b isolinux/isolinux.bin -no-emul-boot -boot-load-size 4 -boot-info-table -c isolinux/boot.cat -o \"" % path % "\".iso \"" % sb::sdir[2] % "\"/.sblivesystemconvert", sb::Prgrss)) return err(325);
+    if(sb::exec("genisoimage -iso-level 3 -allow-limited-size -r -V H-LIVE -cache-inodes -J -l -b isolinux/isolinux.bin -no-emul-boot -boot-load-size 4 -boot-info-table -c isolinux/boot.cat -o \"" % path % "\".iso \"" % sb::sdir[2] % "\"/.sblivesystemconvert", sb::Prgrss)) return err(325);
     if(sb::exec("isohybrid \"" % path % "\".iso") || ! cfmod(path % ".iso", 0666)) return err();
     sb::remove(sb::sdir[2] % "/.sblivesystemconvert");
     if(intrrpt) return err();

@@ -1,3 +1,11 @@
+systemback (1.9.4hamonikr7) jin; urgency=low
+
+  * Update systemback/systemback.cpp
+   - enable ISO convert more than 4GB
+   - fix #2 - https://github.com/hamonikr/systemback/issues/2
+
+ -- HamoniKR <pkg@hamonikr.org>  Sun, 18 Apr 2021 21:16:03 +0900
+
 systemback (1.9.4hamonikr6) jin; urgency=low
 
   * Update systemback/systemback.cpp
