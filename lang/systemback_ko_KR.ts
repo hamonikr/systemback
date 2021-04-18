@@ -433,7 +433,7 @@
     </message>
     <message>
         <source>! Interrupt !</source>
-        <translation>! 작업 중단 !</translation>
+        <translation>취소</translation>
     </message>
     <message>
         <source>Creates a scheduled restore point within few seconds.</source>
