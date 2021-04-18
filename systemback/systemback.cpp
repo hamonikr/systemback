@@ -2645,9 +2645,9 @@ void systemback::livewrite()
         }
         else
         {
-            // change to 300MB : 314572800 byte
+            // change to 2GB : 2147483648 byte
             // if(! (sb::mkpart(ldev, 1048576, 104857600) && sb::mkpart(ldev)) || intrrpt) return err(338);
-            if(! (sb::mkpart(ldev, 1048576, 314572800) && sb::mkpart(ldev)) || intrrpt) return err(338);
+            if(! (sb::mkpart(ldev, 1048576, 2147483648) && sb::mkpart(ldev)) || intrrpt) return err(338);
             sb::delay(100);
             // if(sb::exec("mkfs.ext2 -FL SBROOT " % ldev % (ismmc ? "p" : nullptr) % '2') || intrrpt) return err(338);
             if(sb::exec("mkfs.ext4 -FL SBROOT " % ldev % (ismmc ? "p" : nullptr) % '2') || intrrpt) return err(338);
