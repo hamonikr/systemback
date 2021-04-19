@@ -5460,8 +5460,7 @@ void systemback::on_livelist_currentItemChanged(QLWI *crrnt)
             if(! ui->livedelete->isEnabled()) ui->livedelete->setEnabled(true);
             ullong isize(sb::fsize(sb::sdir[2] % '/' % sb::left(crrnt->text(), sb::instr(crrnt->text(), " ") - 1) % ".sblive"));
 
-            // if(isize && isize < 4294967295 && isize * 2 + 104857600 < sb::dfree(sb::sdir[2]) && ! sb::exist(sb::sdir[2] % '/' % sb::left(crrnt->text(), sb::instr(crrnt->text(), " ") - 1) % ".iso"))
-            if(isize && isize < 34359738368 && isize * 2 + 104857600 < sb::dfree(sb::sdir[2]) && ! sb::exist(sb::sdir[2] % '/' % sb::left(crrnt->text(), sb::instr(crrnt->text(), " ") - 1) % ".iso"))
+            if(isize && isize < 4294967295 && isize * 2 + 104857600 < sb::dfree(sb::sdir[2]) && ! sb::exist(sb::sdir[2] % '/' % sb::left(crrnt->text(), sb::instr(crrnt->text(), " ") - 1) % ".iso"))
             {
                 if(! ui->liveconvert->isEnabled()) ui->liveconvert->setEnabled(true);
             }
@@ -7463,8 +7462,7 @@ void systemback::on_livenew_clicked()
     {
         ullong isize(sb::fsize(sb::sdir[2] % '/' % ifname % ".sblive"));
 
-        // if(isize < 4294967295 && isize + 52428800 < sb::dfree(sb::sdir[2]))
-        if(isize < 34359738368 && isize + 52428800 < sb::dfree(sb::sdir[2]))
+        if(isize < 4294967295 && isize + 52428800 < sb::dfree(sb::sdir[2]))
         {
             pset(20, " 4/3+1"),
             sb::Progress = -1;
