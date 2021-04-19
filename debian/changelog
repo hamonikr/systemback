@@ -1,3 +1,17 @@
+systemback (1.9.4hamonikr9) jin; urgency=low
+
+  * Update systemback/systemback.cpp
+   - Fix #7 : Support isohybrid UEFI support
+
+ -- HamoniKR <pkg@hamonikr.org>  Mon, 19 Apr 2021 16:26:12 +0900
+
+systemback (1.9.4hamonikr8) jin; urgency=low
+
+  * Update systemback/systemback.cpp
+   - genisoimage option change 
+
+ -- HamoniKR <pkg@hamonikr.org>  Mon, 19 Apr 2021 09:51:06 +0900
+
 systemback (1.9.4hamonikr7) jin; urgency=low
 
   * Update systemback/systemback.cpp
