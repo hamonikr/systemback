@@ -1,8 +1,51 @@
+![ubuntu-bionic](https://img.shields.io/badge/ubuntu-18.04-yellow)
+![ubuntu-focal](https://img.shields.io/badge/ubuntu-20.04-red)
+![ubuntu-groovy](https://img.shields.io/badge/ubuntu-20.10-blue)
 ![hamonikr-me](https://img.shields.io/badge/hamonikr-me-orange)
 ![hamonikr-sun](https://img.shields.io/badge/hamonikr-sun-green)
 ![hamonikr-jin](https://img.shields.io/badge/hamonikr-jin-purple)
 
+[English](#systemback) | [한국어](#시스템백)
+
 # systemback
+* [한국어 바로가기](#시스템백)
+
+This project provides a variety of features to make it easy to use backup and recovery on modern Ubuntu-based systems.
+
+Since the old systemback project is no longer developed and has been discontinued, the latest version of Ubuntu is no longer supported, so I decided to fork the project below and proceed anew.
+* origin: https://launchpad.net/systemback
+* upstream: https://github.com/fconidi/Systemback_source-1.9.4
+
+## Supported OS
+-Ubuntu 18.04, Ubuntu 20.04, Ubuntu 20.10, HamoniKR (>=3.0)
+
+Since the contents of the hard disk and the 2G usb persistent function are included, the size of the USB is 8G or more recommended.
+
+## Features
+* Easily backup and store your own PC environment in use.
+* You can use your own PC environment wherever you are by creating a USB set as your own environment.
+* This system can be installed on another PC.
+* Support 2G USB persistent: Supports write function after booting with live USB (If you save it in the SBLIVE folder created on the desktop after live booting, the contents are maintained even after booting)
+
+## Manual
+For more detailed instructions, refer to the document below.
+* https://docs.hamonikr.org/hamonikr/tips/systemback
+
+## Installation
+Ubuntu (>=18.04), LinuxMint (>=19), any Ubuntu based Linux
+```
+# Add APT
+curl -sL https://pkg.hamonikr.org/add-hamonikr.apt | sudo -E bash-
+# Install package
+sudo apt install systemback
+```
+
+## Report Issue
+If you find a problem while using it, please report it to GitHub issues or at root@hamonikr.org or https://hamonikr.org.
+
+# 시스템백
+
+[Go to English](#systemback) 
 
 systemback 프로그램을 하모니카에서 사용할 수 있도록 새롭게 빌드한 프로젝트입니다.
  - upstream : https://github.com/fconidi/Systemback_source-1.9.4
