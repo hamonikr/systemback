@@ -17,8 +17,9 @@ Since the old systemback project is no longer developed and has been discontinue
 * upstream: https://github.com/fconidi/Systemback_source-1.9.4
 
 ## Supported OS
--Ubuntu 18.04, Ubuntu 20.04, Ubuntu 20.10, HamoniKR (>=3.0)
+* Ubuntu 18.04, Ubuntu 20.04, Ubuntu 20.10, HamoniKR (>=3.0)
 
+## USB capacity requirements
 Since the contents of the hard disk and the 2G usb persistent function are included, the size of the USB is 8G or more recommended.
 
 ## Features
@@ -27,7 +28,7 @@ Since the contents of the hard disk and the 2G usb persistent function are inclu
 * This system can be installed on another PC.
 * Support 2G USB persistent: Supports write function after booting with live USB (If you save it in the SBLIVE folder created on the desktop after live booting, the contents are maintained even after booting)
 
-## Manual
+## Document
 For more detailed instructions, refer to the document below.
 * https://docs.hamonikr.org/hamonikr/tips/systemback
 
@@ -42,6 +43,8 @@ sudo apt install systemback
 
 ## Report Issue
 If you find a problem while using it, please report it to GitHub issues or at root@hamonikr.org or https://hamonikr.org.
+
+<hr>
 
 # 시스템백
 
