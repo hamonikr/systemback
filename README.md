@@ -37,6 +37,7 @@ Ubuntu (>=18.04), LinuxMint (>=19), any Ubuntu based Linux
 ```
 # Add APT
 curl -sL https://pkg.hamonikr.org/add-hamonikr.apt | sudo -E bash-
+
 # Install package
 sudo apt install systemback
 ```
