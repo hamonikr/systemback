@@ -19,11 +19,12 @@ systemback 프로그램을 하모니카에서 사용할 수 있도록 새롭게 
 ### 주요 기능 개선 내용
 - 하모니카 3.0 지원 (Ubuntu 18.04, LinuxMint 19.01 지원)
 - 하모니카 4.0 지원 (Ubuntu 20.04, LinuxMint 20.01 지원)
-- casper 사용 시 부팅 오류나는 버그 수정
+- casper 패키지가 있는 경우 부팅 오류 버그 수정
 - `한글 프로그램 인터페이스 지원`
 - `라이브 USB로 부팅 후 쓰기 기능 지원` (라이브 부팅 후 바탕화면에 생성된 `SBLIVE` 폴더에 저장하면 부팅해도 내용을 유지)
-- 백업한 이미지를 USB에 쓰기 할 때 `2G usb persistent 기능을 기본으로 제공`
-- 4G 이상의 백업 이미지도 ISO 변환하기 기능을 제공
+- 백업한 이미지를 USB에 쓰기 할 때 `2G usb persistent 기능을 기본으로 제공`하도록 변경
+- ISO hybrid 생성 기능 수정
+
 
 ## 백업하기
 * `라이브 시스템 생성` 버튼을 누르면 현재 사용 중인 시스템의 스냅샷을 생성합니다.
@@ -43,7 +44,8 @@ systemback 프로그램을 하모니카에서 사용할 수 있도록 새롭게 
 ![screen4](doc/systemback-4.png)
 
 보다 자세한 사용법은 링크된 문서를 참고하세요.
-https://hamonikr.org/used_hamonikr/95052
+* https://docs.hamonikr.org/hamonikr/tips/systemback
+* https://hamonikr.org/used_hamonikr/95052
 
 ## 프로그램 설치
 
