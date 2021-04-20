@@ -10,6 +10,8 @@
 # systemback
 * [한국어 바로가기](#시스템백)
 
+![systemback](doc/systemback.png)
+
 This project provides a variety of features to make it easy to use backup and recovery on modern Ubuntu-based systems.
 
 Since the old systemback project is no longer developed and has been discontinued, the latest version of Ubuntu is no longer supported, so I decided to fork the project below and proceed anew.
