@@ -4043,7 +4043,7 @@ void systemback::on_systemupgrade_clicked()
     statustart(), pset(11);
     QDateTime ofdate(QFileInfo("/usr/bin/systemback").lastModified());
     sb::unlock(sb::Dpkglock), sb::unlock(sb::Aptlock),
-    sb::exec("xterm +sb -bg grey85 -fg grey25 -fa a -fs 9 -geometry 80x24+" % QStr::number(ss(80)) % '+' % QStr::number(ss(70)) % " -n \"System upgrade\" -T \"System upgrade\" -cr grey40 -selbg grey86 -bw 0 -bc -bcf 500 -bcn 500 -e sbsysupgrade", sb::Noflag, "DBGLEV=0");
+    sb::exec("xterm +sb -bg grey85 -fg grey25 -fa \"Ubuntu mono\" -fs 10 -geometry 80x24+" % QStr::number(ss(80)) % '+' % QStr::number(ss(70)) % " -n \"System upgrade\" -T \"System upgrade\" -cr grey40 -selbg grey86 -bw 0 -bc -bcf 500 -bcn 500 -e sbsysupgrade", sb::Noflag, "DBGLEV=0");
 
     if(isVisible())
     {

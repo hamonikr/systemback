@@ -1,3 +1,10 @@
+systemback (2.0.0) stable; urgency=low
+
+  * Update systemback/systemback.cpp
+   - Fix #9 : Change terminal font
+
+ -- HamoniKR <pkg@hamonikr.org>  Thu, 22 Apr 2021 10:25:53 +0900
+
 systemback (1.9.4hamonikr9) jin; urgency=low
 
   * Update systemback/systemback.cpp
