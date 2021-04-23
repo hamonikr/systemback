@@ -19,15 +19,15 @@
 #ifndef SBTYPEDEF_HPP
 #define SBTYPEDEF_HPP
 
-#include <QtWidgets/QDesktopWidget>
-#include <QtWidgets/QTableWidget>
-#include <QtWidgets/QRadioButton>
-#include <QtWidgets/QListWidget>
-#include <QtWidgets/QPushButton>
-#include <QtWidgets/QLineEdit>
-#include <QtWidgets/QComboBox>
-#include <QtWidgets/QCheckBox>
-#include <QtWidgets/QLabel>
+#include <QDesktopWidget>
+#include <QTableWidget>
+#include <QRadioButton>
+#include <QListWidget>
+#include <QPushButton>
+#include <QLineEdit>
+#include <QComboBox>
+#include <QCheckBox>
+#include <QLabel>
 #include <QTranslator>
 #include <QTextStream>
 #include <QStringList>
