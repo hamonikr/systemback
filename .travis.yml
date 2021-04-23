@@ -1,6 +1,6 @@
 language: cpp
 sudo: required
-dist: focal
+dist: bionic
 compiler:
 - gcc
 os:
@@ -8,6 +8,7 @@ os:
 before_install:
  - sudo apt-get update -qq
  - sudo apt-get install debhelper libblkid-dev libmount-dev libncursesw5-dev libparted-dev qtbase5-dev qttools5-dev-tools
+ - sudo apt-get install qtdeclarative5-dev libqt5webkit5-dev libsqlite3-dev qt5-default
 script:
 - qmake ./systemback.pro
 - make
