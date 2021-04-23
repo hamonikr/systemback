@@ -6,5 +6,4 @@ compiler:
 os:
 - linux
 script:
-- qmake ./systemback.pro
 - make
