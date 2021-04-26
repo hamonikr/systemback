@@ -8,7 +8,7 @@ os:
 before_install:
  - sudo apt-get update -qq
  - sudo apt-get install debhelper libblkid-dev libmount-dev libparted-dev qtbase5-dev qttools5-dev-tools
- - openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -iv $encrypted_0a6446eb3ae3_iv -in all.gpg.enc -out all.gpg -d
+ - openssl aes-256-cbc -K $encrypted_63661bf129f4_key -iv $encrypted_63661bf129f4_iv -in all.gpg.enc -out ~\/all.gpg -d
  - gpg --import all.gpg
 script:
 - sudo dpkg-buildpackage --sign-key=9FA298A1E42665B8
