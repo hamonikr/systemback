@@ -6,4 +6,4 @@ compiler:
 os:
 - linux
 script:
-- dpkg-buildpackage
+- sudo dpkg-buildpackage
