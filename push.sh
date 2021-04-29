@@ -13,7 +13,7 @@ commit_website_files() {
 }
 
 upload_files() {
-  git remote add new https://${GH_TOKEN}@github.com/yeji0407/systemback_temp.git > /dev/null 2>&1
+  git remote add new https://${GH_TOKEN}@github.com/yeji0407/systemback.git > /dev/null 2>&1
   git push new deploy
 }
 
