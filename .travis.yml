@@ -6,9 +6,14 @@ compiler:
 os:
 - linux
 before_install:
- - sudo apt-get update -qq
- - sudo apt-get install debhelper libblkid-dev libmount-dev libparted-dev qtbase5-dev qttools5-dev-tools
- - openssl aes-256-cbc -K $encrypted_63661bf129f4_key -iv $encrypted_63661bf129f4_iv -in all.gpg.enc -out ~\/all.gpg -d
- - gpg --import all.gpg
+- echo $GH_TOKEN
+- sudo apt-get update -qq
+- sudo apt-get install debhelper libblkid-dev libmount-dev libparted-dev qtbase5-dev
+  qttools5-dev-tools
 script:
-- sudo dpkg-buildpackage --sign-key=9FA298A1E42665B8
+- sudo dpkg-buildpackage --no-sign
+after_success:
+- sh push.sh
+env:
+  global:
+    secure: "lqscSiVuYJWIxkTKVKpnhj3Dz5eoyOapY5YwhcqomLmEwYNF/gixQAjP+h4e8Fz4zls57xn/KhmwuOJ4wap4S1NRD3+YGwM/0OmFdsblNH3rnxuUwYZmCGZVIxwEhRtn+E/wsywo0hKTYkqVYUNO+/zds6WGNSwi7BzHHyHREZ9wH4v5Fo+D9ttzYY9SDFL0Gg5DLADzlGowYJMAXujgC2ba12+2rx9P8WnM0n5l13alQPk+/L5ZTgufqiahJqdoaJ0iPIh+y7UkrJBJBxS67rPREOy6VsipQNCLbxzuUN9k8jsraxR3X+wUfMQcO5eB+U4ayfR5Uw2U6C4Vkg7YmFMsRH111KP2YWJxfoFuHLZHlMZmwjWJN+uLezk1qb2T3EdoEPE4mGByrDEpBiKKvh8YbBQ3BplbTq85Jn6Crly4EPr1L9PGSSL5T7n0NSQ8hV+hRWGOBRV3c8GyN4xk/u7I4ciu7E7GaCf1HL8nB+VwzlSmt2Yz5K/BSBI37wc1YPkCbIySa+ffp+xF75iJZvV4dSLX/hPZVNcC/K6cO5P4GLhEj/vvfXZVoNP0JQJRI0pyB9FEn24Y0GlcbpRzZX+0dz28TG/UtHG74SUSufD9xX7XFvfEKen8SYkTMj/8DP069bfduDaU7dp8eblwF1o99qWK2Ao8XoV0USWvr+0="
