@@ -5,7 +5,7 @@ setup_git() {
   git config --global user.name "Hong Yeji"
 }
 
-commit_website_files() {
+commit_deb_files() {
   git checkout -b deploy
   mkdir packages && mv ../*.deb packages/
   git add packages/*
@@ -18,5 +18,5 @@ upload_files() {
 }
 
 setup_git
-commit_website_files
+commit_deb_files
 upload_files
