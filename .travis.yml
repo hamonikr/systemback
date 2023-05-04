@@ -1,0 +1,18 @@
+language: cpp
+sudo: required
+dist: bionic
+compiler:
+- gcc
+os:
+- linux
+before_install:
+- sudo apt-get update -qq
+- sudo apt-get install debhelper libblkid-dev libmount-dev libparted-dev qtbase5-dev
+  qttools5-dev-tools
+script:
+- sudo dpkg-buildpackage --no-sign
+after_success:
+- sh travis/push.sh
+env:
+  global:
+    secure: "TE1ADBQlxvKW4HeN0nBZ2AAwqWEPlCMvbsmqnndr2Ee61x3rlurBSBsCC6sdjdPhpQ/vo9gygdbLYP0XX/SpU2b9We8vjWBvMQ7FyRUDkXTrBMuiqYdWXbYc5XmMFVX7E1sR+iUp4loXd4vjWHfzz9FJUQfnn4CqB7BxL52QHKGa9l3fZncdxmwQbWpJappRdIP1eJKa9sbcvj6hg20PczJDdihAkTR25t0JBBKeJJO6CE6bPYpBWICRQuo6C+wSCAN2155rF3Smr0ISiMHLge2hSSsris840Vn+8z6S33XlkSLm1pNVLvUOjXzxx6+KcaRS18mAmJTmBqhF3+ePck2sosonlC+ZplzmA2cU7tPSy5D1jSDKT4MrfKHzH7QeE6NWU98PMRMgPKET452M4DblySVJxCXq4OH/SbUNXqr8gnGx0JRDza9tCCKunp2+oDFYAbeag8cRVyffNrNWn6AbDHwppfp2O4JuuNUCLPTS/xT8aNvhbQ6zp/rLWc0aUVqGPQ23yf0KhKN1t1adfr7YJgUEZ6c5J23Yet1i32kuD+rwbiKv8anUoZh3wWHt0CP6RTYnhBkeDl4DMNKen3Ik8CZWEn1AsWSithQsmsOGVeC0WU25rOYjk5Mudp5MYFNuB75V9KmRwKpMg4a61AskynXqL7KVAZveurXkru8="
