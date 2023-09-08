@@ -1,3 +1,9 @@
+systemback (2.0.1) stable; urgency=low
+
+  * Release on Ubuntu 22.04
+
+ -- HamoniKR <pkg@hamonikr.org>  Fri, 08 Sep 2023 12:09:17 +0900
+
 systemback (2.0.0) stable; urgency=low
 
   * Update systemback/systemback.cpp
