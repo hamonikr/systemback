@@ -1,3 +1,9 @@
+systemback (2.0.2) stable; urgency=low
+
+  * Release on Ubuntu 24.04
+
+ -- HamoniKR <pkg@hamonikr.org>  Tue, 18 Jun 2024 14:02:12 +0900
+
 systemback (2.0.1) stable; urgency=low
 
   * Release on Ubuntu 22.04
